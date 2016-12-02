@@ -1,0 +1,545 @@
+@import "variables";
+@import "queries";
+@import "mixins";
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    &:after,
+    &:before {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+}
+html {
+    font-size: 16px;
+    font-family: $sansSerifFont;
+    line-height: 1.6;
+}
+h1,
+h2,
+h3,
+h4 {
+    font-family: $serifFont;
+}
+ul {
+    list-style: none;
+}
+.clearfix:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+.bg-header {
+    background-color: $white;
+    background-color: $lightBlue;
+    color: $darkGrey;
+    border-bottom: 1rem solid $medBlue;
+    border-top: 1rem solid$darkBlue;
+    position: relative;
+    &:before,
+    &:after {
+        @include setWidthPerc(30);
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        height: 1rem;
+        background-color: $darkBlue;
+    }
+    &:before {
+        left: 0;
+    }
+    &:after {
+        right: 0;
+    }
+}
+.bg-focal {
+    background-color: $lightBrown;
+    color: $darkBrown;
+}
+.bg-content1 {
+    background-color: $white;
+    color: $darkGrey;
+}
+.bg-content2 {
+    background-color: $lightBlue;
+    color: $darkBlue;
+}
+.bg-footer {
+    background-color: $white;
+    color: $lightGrey;
+}
+header {
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+    nav {
+        @include setWidthPerc(100);
+        > ul {
+            li {
+                @include setWidthPerc(100);
+                float: none;
+            }
+            > li > a {
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                color: $darkGrey;
+                font-size: 1.414rem;
+                letter-spacing: 0.25rem;
+                border: 1px solid$lightGrey;
+                border-bottom: none;
+                padding: 1.0rem 2rem;
+                line-height: 1;
+                background-color: $white;
+                &:hover {
+                    font-weight: 700;
+                    color: $darkBrown;
+                }
+            }
+        }
+        padding: 2rem 0;
+        clear: both;
+    }
+    h1 {
+        @include setWidthPerc(100);
+        padding: 0 2rem;
+        color: $darkBrown;
+        letter-spacing: 0.1rem;
+        i.fa-lg {
+            display: block;
+            width: 25%;
+            float: left;
+            font-size: 7rem;
+            line-height: 12.7936rem;
+            color: $lightBrown;
+            ~ span {
+                float: right;
+                width: 75%;
+                font-size: 3.998rem;
+                padding-left: 1rem;
+                text-align: right;
+            }
+        }
+    }
+}
+.focal {
+    width: 400px;
+    margin: 0 auto;
+    h2 {
+        font-size: 1.999rem;
+        line-height: 1.2;
+        padding: 2rem 2rem 1rem 2rem;
+    }
+}
+.author {
+    font-size: 1rem;
+    padding: 0.2rem 2rem 2rem;
+}
+.content1
+    {
+    padding: 2rem 0; 
+}
+.content2 {
+    @extend .content1;
+}
+.row {
+    clear: both;
+}
+.col-2 {
+    @include setWidthPerc(50);
+    float: left;
+    padding-bottom: 2rem;
+    border-left: 1px solid$darkBlue;
+    margin-bottom: 2rem;
+    &:first-child {
+        border-left: 0;
+    }
+}
+.content1 {
+    h3 {
+        font-size: 1.999rem;
+        padding: 0.2rem 2rem 2rem;
+        i {
+            vertical-align: middle;
+            padding-right: 2rem;
+        }
+    }
+    p {
+        font-size: 1.414rem;
+        padding: 0.5rem 2rem 2rem;
+    }
+}
+.content2 {
+    h3 {
+        font-size: 1.999rem;
+        padding: 1rem 2rem 0.5rem;
+    }
+    h4 {
+        font-size: 1.999rem;
+        padding: 1rem 2rem 0rem;
+    }
+    p {
+        font-size: 1.414rem;
+        padding: 0.5rem 2rem 1rem;
+    }
+    li {
+        padding: 0.5rem 2rem;
+        font-size: 1.414rem;
+    }
+}
+footer {
+    padding: 2rem 0;
+    h4 {
+        font-size: 1.414rem;
+        padding: 0.5rem 2rem;
+        color: $darkBrown;
+        &[lang=de] { 
+            display: block;
+        }
+        &[lang=en],
+        &[lang=ar],
+        &[lang=ru] {
+            display: none;
+        }
+    }
+    p {
+        font-size: 1rem;
+        padding: 0.5rem 2rem;
+        color: $darkGrey;
+    }
+}
+.fa-circle {
+    color: $darkGrey;
+}
+@include tablet {
+    header {
+        @include tabletWidth();
+        min-height: 8rem;
+        h1 {
+            @include setWidthPerc(100);
+            color: $darkBrown;
+        }
+        &:before,
+        &:after {
+            width: 230px;
+        }
+        h1 i.fa-lg {
+            display: inline;
+            color: $darkBrown;
+            vertical-align: baseline;
+            float: none;
+            font-size: 4rem;
+            line-height: 6.3968rem;
+            ~ span {
+                float: none;
+                letter-spacing: 0.25rem;
+                font-size: 3.998rem;
+                text-align: left;
+            }
+        }
+        nav {
+            position: static;
+            clear: both;
+            @include setWidthPerc(100);
+            padding: 0;
+            > ul > li {
+                @include setWidthPerc(20);
+                float: left;
+                > a {
+                    font-size: 1rem;
+                    line-height: 2rem;
+                    min-height: 6rem;
+                    border: none;
+                    border-left: 1px solid$lightGrey;
+                    padding: 1.0rem;
+                    background-color: $white;
+                    &:last-child {
+                        border-right: 1px solid$lightGrey;
+                    }
+                }
+            }
+        }
+    }
+    .focal,
+    .content1,
+    .content2 {
+        @include tabletWidth();
+        margin: 0 auto;
+    }
+    .col-4 {
+        @include setWidthPerc(50);
+        float: left;
+    }
+    .content2 {
+        h4,
+        li {
+            font-size: 1.414rem;
+        }
+    }
+    .fa-circle {
+        color: $medBlue;
+    }
+    .col-2:last-child {
+            unicode-bidi: bidi-override;
+            direction: rtl;
+        }
+    footer {
+        
+        @include tabletWidth();
+        margin: 0 auto;
+        h4 {
+            &[lang=ar] {
+                display: block;
+            }
+            &[lang=de],
+            &[lang=en],
+            &[lang=ru] {
+                display: none;
+            }
+        }
+    }
+}
+@include desktop {
+    header {
+        @include desktopWidth();
+        &:before,
+        &:after {
+            width: 300px;
+        }
+        h1 {
+            @include setWidthPerc(100);
+            color: $darkBlue;
+            i.fa-lg {
+                display: inline;
+                color: $darkBlue;
+                vertical-align: baseline;
+                float: none;
+                font-size: 4rem;
+                line-height: 6.3968rem;
+                ~ span {
+                    float: none;
+                    letter-spacing: 0.25rem;
+                    font-size: 3.998rem;
+                    text-align: left;
+                }
+            }
+        }
+        nav {
+            position: static;
+            clear: both;
+            @include setWidthPerc(100);
+            padding: 0;
+            > ul > li {
+                @include setWidthPerc(20);
+                float: left;
+                background-color: $white;
+                > a {
+                    font-size: 1rem;
+                    line-height: 2rem;
+                    min-height: 2rem;
+                    border: none;
+                    border-left: 1px solid$lightGrey;
+                    padding: 0 1.0rem;
+                    margin: 1.0rem 0;
+                    background-color: $white;
+                }
+                &:first-child a {
+                    border-left: none;
+                }
+            }
+        }
+    }
+    .focal,
+    .content1,
+    .content2 {
+        @include desktopWidth();
+    }
+    .focal {
+        h2,
+        .author {
+            width: 600px;
+            margin: 0 auto;
+        }
+    }
+    .col-3 {
+        float: left;
+        @include setWidthPerc(30);
+        margin-left: 5%;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    .col-4 {
+        @include setWidthPerc(22);
+        margin-left: 4%;
+        float: left;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    .content1 h3 {
+        font-size: 1.999rem;
+        font-weight: 100;
+        .fa-2x {
+            font-size: 1.999rem;
+            padding-right: 1rem;
+        }
+    }
+    .content2 { 
+        h4,
+        li {
+            font-size: 1.414rem;
+        }
+        p {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+    }
+    .fa-circle {
+        color: $lightBrown;
+    }
+    footer {
+        @include desktopWidth();
+        .col-2:last-child {
+            unicode-bidi: bidi-override;
+            direction: ltr;
+        }
+        h4 {
+            &[lang=ru] {
+                display: block;
+            }
+            &[lang=de],
+            &[lang=en],
+            &[lang=ar] {
+                display: none;
+            }
+        }
+    }
+}
+@include largeDesktop {
+    header {
+        @include lDesktopWidth();
+        &:before,
+        &:after {
+            width: 450px;
+        }
+        h1 {
+            width: 100%;
+            color: $darkBrown;
+            i.fa-lg {
+                display: inline;
+                color: $darkBrown;
+                vertical-align: baseline;
+                float: none;
+                font-size: 4rem;
+                line-height: 6.3968rem;
+                ~ span {
+                    float: none;
+                    letter-spacing: 0.25rem;
+                    font-size: 3.998rem;
+                    text-align: left;
+                }
+            }
+        }
+        nav {
+            position: static;
+            clear: both;
+            @include setWidthPerc(100);
+            padding: 0;
+            > ul > li {
+                @include setWidthPerc(20);
+                float: left;
+                background-color: $white;
+                > a {
+                    font-size: 1.414rem;
+                    line-height: 2rem;
+                    min-height: 2rem;
+                    border: none;
+                    border-left: 1px solid$lightGrey;
+                    padding: 0 1.0rem;
+                    margin: 1.0rem 0;
+                    background-color: $white;
+                }
+                &:first-child a {
+                    border-left: none;
+                }
+            }
+        }
+    }
+    .focal,
+    .content1,
+    .content2 {
+        @include lDesktopWidth();
+    }
+    .author {
+        width: 600px;
+        margin: 0 auto;
+    }
+    .focal {
+        h2 {
+            font-size: 3.998rem;
+            width: 600px;
+            margin: 0 auto;
+        }
+    }
+    .col-3 {
+        float: left;
+        @include setWidthPerc(30);
+        margin-left: 5%;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    .col-4 {
+        @include setWidthPerc(22);
+        margin-left: 4%;
+        float: left;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    .content1 h3 {
+        font-size: 2.827rem;
+        font-weight: 100;
+        .fa-2x {
+            font-size: 2.827rem;
+            padding-right: 1rem;
+            vertical-align: middle;
+        }
+    }
+    .content2 {
+        h4,
+        li {
+            font-size: 1.999rem;
+        }
+        p {
+            font-size: 1.414rem;
+            font-weight: 400;
+        }
+    }
+    .fa-circle {
+        color: $medBlue;
+    }
+    footer {
+        @include lDesktopWidth();
+        p {
+            font-size: 1.414rem;
+            letter-spacing: 0.2rem;
+            &:last-child {
+                color: $lightGrey;
+            }
+        }
+        h4 {
+            &[lang=en] {
+                display: block;
+            }
+            &[lang=de],
+            &[lang=ar],
+            &[lang=ru] {
+                display: none;
+            }
+        }
+    }
+}

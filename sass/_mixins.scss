@@ -1,0 +1,22 @@
+@import "variables";
+
+@mixin setWidthPerc($percentage) {
+    
+    width: $percentage * 1%;
+    
+}
+
+@mixin tabletWidth() {
+    width: 700px;
+    
+}
+
+@mixin desktopWidth() {
+    width: 900px;
+    
+}
+
+@mixin lDesktopWidth() {
+    width: 1400px;
+    
+}
